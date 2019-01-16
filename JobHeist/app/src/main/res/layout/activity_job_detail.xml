@@ -6,45 +6,49 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".JobDetail">
+    <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent" android:orientation="vertical">
+        <include layout="@layout/app_bar_jobdetail" android:layout_height="wrap_content" android:layout_width="match_parent"/>
 
-    <ImageView
-            android:id="@+id/imageJobJobDetail"
-            android:layout_width="match_parent"
-            android:layout_height="194dp"
-            android:src="@drawable/img_default"
-            app:layout_constraintTop_toTopOf="parent" app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"/>
-    <TextView
-            android:id="@+id/text_job_title_jobdetail"
-            android:text="Job Title"
-            android:fontFamily="@font/roboto_medium"
-            android:textSize="18sp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@+id/imageJobJobDetail"
-            android:layout_marginTop="35dp"
-            app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginStart="20dp"/>
-    <TextView
-            android:id="@+id/text_location_jobdetail"
-            android:text="location of reception"
-            android:fontFamily="@font/roboto_regular"
-            android:textSize="12sp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintStart_toStartOf="@+id/text_job_title_jobdetail"
-            app:layout_constraintTop_toBottomOf="@+id/text_job_title_jobdetail"
-            android:layout_marginTop="8dp"/>
-    <TextView
-            android:id="@+id/text_description_jobdetail"
-            android:text="description..."
-            android:fontFamily="@font/roboto_regular"
-            android:textSize="12sp"
-            android:layout_width="match_parent"
-            android:paddingStart="20dp"
-            android:paddingEnd="20dp"
-            android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@+id/text_location_jobdetail"
-            android:layout_marginTop="15dp"
-            app:layout_constraintStart_toStartOf="@+id/text_location_jobdetail"/>
+        <ImageView
+                android:id="@+id/imageJobJobDetail"
+                android:layout_width="match_parent"
+                android:layout_height="194dp"
+                android:src="@drawable/img_default"
+                app:layout_constraintTop_toTopOf="parent" app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
+        <TextView
+                android:id="@+id/text_job_title_jobdetail"
+                android:text="Job Title"
+                android:fontFamily="roboto_medium"
+                android:textSize="18sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/imageJobJobDetail"
+                android:layout_marginTop="35dp"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginStart="20dp"/>
+        <TextView
+                android:id="@+id/text_location_jobdetail"
+                android:text="location of reception"
+                android:fontFamily="roboto"
+                android:textSize="12sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="@+id/text_job_title_jobdetail"
+                app:layout_constraintTop_toBottomOf="@+id/text_job_title_jobdetail"
+                android:layout_marginTop="8dp"
+                android:layout_marginStart="20dp"/>
+        <TextView
+                android:id="@+id/text_description_jobdetail"
+                android:text="description..."
+                android:fontFamily="roboto"
+                android:textSize="12sp"
+                android:layout_width="match_parent"
+                android:paddingStart="20dp"
+                android:paddingEnd="20dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/text_location_jobdetail"
+                android:layout_marginTop="15dp"
+                app:layout_constraintStart_toStartOf="@+id/text_location_jobdetail"/>
+    </LinearLayout>
 </android.support.constraint.ConstraintLayout>

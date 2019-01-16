@@ -5,7 +5,8 @@
         xmlns:tools="http://schemas.android.com/tools"
         android:id="@+id/layout_recyclerview"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:background="?attr/selectableItemBackground">
 
 
     <ImageView
@@ -17,7 +18,7 @@
     <TextView
             android:text="Title Job"
             android:textColor="@color/Black"
-            android:fontFamily="@font/roboto_regular"
+            android:fontFamily="roboto_medium"
             android:textSize="16sp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -27,7 +28,7 @@
     <TextView
             android:text="Company Name"
             android:textColor="@color/Black"
-            android:fontFamily="@font/roboto_regular"
+            android:fontFamily="roboto"
             android:textSize="14sp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

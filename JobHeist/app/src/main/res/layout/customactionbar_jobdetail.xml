@@ -41,7 +41,7 @@
     <TextView
             android:id="@+id/text_job_date"
             android:text="10/10/2019"
-            android:fontFamily="@font/roboto_regular"
+            android:fontFamily="roboto"
             android:textSize="12sp"
             android:textColor="@color/White"
             android:layout_width="wrap_content"
