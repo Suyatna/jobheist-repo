@@ -1,22 +1,14 @@
 package com.jobheist.jobheist
 
-import android.content.Intent
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import com.jobheist.jobheist.model.AccountData
 import com.jobheist.jobheist.model.JobData
-import com.jobheist.jobheist.model.JobList
 import com.jobheist.jobheist.model.JobModel
-import com.jobheist.jobheist.service.UserClient
 import kotlinx.android.synthetic.main.customlayout_recyclerview.view.*
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
 
-class RecyclerViewMainAdapter(val jobs : List<JobModel>?) : RecyclerView.Adapter<customViewHolder>(){
+class RecyclerViewCompanyDetailAdapter(val jobs : List<JobModel>?) : RecyclerView.Adapter<customViewHolder>(){
     val account = AccountData() //Create instance of accountData class
     var bookmarks : BooleanArray = account.getBookmark() //Retrieve bookmarks data
 
@@ -32,7 +24,6 @@ class RecyclerViewMainAdapter(val jobs : List<JobModel>?) : RecyclerView.Adapter
     }
 
     override fun onBindViewHolder(p0: customViewHolder, p1: Int) {
-
         p0.view.textJobName.setText(jobs!![p1].getTitleJob())
         p0.view.textCompanyName.setText(jobs!![p1].getAuthorJob())
 
@@ -53,22 +44,9 @@ class RecyclerViewMainAdapter(val jobs : List<JobModel>?) : RecyclerView.Adapter
             }
         }
 
+
         p0.view.btn_bookmark.setOnClickListener { toggleBookmark() }
 
         p0.jobdetail = jobs
-    }
-}
-
-class customViewHolder(val view : View, var jobdetail : List<JobModel>? = null) : RecyclerView.ViewHolder(view){
-    init{
-        fun showJobDetail(){
-            val intent = Intent(view.context, JobDetail::class.java)
-            intent.putExtra("JobTitle", jobdetail!![position].getTitleJob())
-            intent.putExtra("JobId", jobdetail!![position].getIdJob())
-
-            view.context.startActivity(intent)
-        }
-
-        view.setOnClickListener{showJobDetail()}
     }
 }

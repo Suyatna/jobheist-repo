@@ -1,4 +1,4 @@
-package com.jobheist.jobheist
+package com.jobheist.jobheist.model
 
 class JobData {
     private val joblist_id : IntArray = intArrayOf(1, 2, 3, 4, 5)

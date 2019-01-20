@@ -1,32 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="com.jobheist.jobheist">
+
+    <uses-permission android:name="android.permission.INTERNET"/>
+
     <application
             android:allowBackup="true"
             android:icon="@mipmap/ic_launcher"
-            android:roundIcon="@mipmap/ic_launcher_round"
             android:label="JobHeist"
+            android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true">
+        <activity android:name=".StartUp" android:theme="@style/NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity
+                android:name=".CompanyDetail"
+                android:parentActivityName=".JobDetail"
+                android:theme="@style/NoActionBar">
+        </activity>
         <activity
                 android:name=".SignUp"
-                android:theme="@style/NoActionBar"
-                android:parentActivityName=".MainActivity">
+                android:parentActivityName=".MainActivity"
+                android:theme="@style/NoActionBar">
             <meta-data
                     android:name="android.support.PARENT_ACTIVITY"
                     android:value="com.jobheist.jobheist.MainActivity"/>
         </activity>
         <activity
                 android:name=".SignIn"
-                android:theme="@style/NoActionBar"
-                android:parentActivityName=".MainActivity">
+                android:parentActivityName=".MainActivity"
+                android:theme="@style/NoActionBar">
             <meta-data
                     android:name="android.support.PARENT_ACTIVITY"
                     android:value="com.jobheist.jobheist.MainActivity"/>
         </activity>
         <activity
                 android:name=".ForgotPassword"
-                android:theme="@style/NoActionBar"
-                android:parentActivityName=".SignIn">
+                android:parentActivityName=".SignIn"
+                android:theme="@style/NoActionBar">
             <meta-data
                     android:name="android.support.PARENT_ACTIVITY"
                     android:value="com.jobheist.jobheist.SignIn"/>
@@ -34,19 +49,24 @@
         <activity
                 android:name=".MainActivity"
                 android:theme="@style/NoActionBar">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-                <category android:name="android.intent.category.LAUNCHER"/>
-            </intent-filter>
         </activity>
         <activity
                 android:name=".JobDetail"
-                android:theme="@style/NoActionBar"
-                android:parentActivityName=".MainActivity">
+                android:parentActivityName=".MainActivity"
+                android:theme="@style/NoActionBar">
             <meta-data
                     android:name="android.support.PARENT_ACTIVITY"
                     android:value="com.jobheist.jobheist.MainActivity"/>
         </activity>
-        <meta-data android:name="preloaded_fonts" android:resource="@array/preloaded_fonts"/>
+
+        <meta-data
+                android:name="preloaded_fonts"
+                android:resource="@array/preloaded_fonts"/>
+
+        <activity
+                android:name=".HomeLoggedIn"
+                android:theme="@style/NoActionBar">
+        </activity>
     </application>
+
 </manifest>

@@ -81,6 +81,7 @@
 
     <Button
             android:text="Sign In"
+            android:onClick="SignInButton"
             android:fontFamily="roboto_medium"
             android:textSize="15sp"
             android:textColor="@color/White"

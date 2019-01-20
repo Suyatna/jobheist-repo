@@ -7,10 +7,18 @@ import android.support.design.widget.NavigationView
 import android.support.v4.view.GravityCompat
 import android.support.v7.app.ActionBarDrawerToggle
 import android.support.v7.widget.LinearLayoutManager
+import android.support.v7.widget.RecyclerView
 import android.view.*
 import android.widget.*
+import com.jobheist.jobheist.model.JobList
+import com.jobheist.jobheist.model.JobModel
+import com.jobheist.jobheist.service.UserClient
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.app_bar_home.*
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+import retrofit2.Retrofit
 
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
@@ -37,7 +45,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         txtSignIn.setOnClickListener{ goToSignIn() }
 
         jobList.layoutManager = LinearLayoutManager(this)
-        jobList.adapter = RecyclerViewMainAdapter()
+        fetchJobData()
     }
 
     private fun goToSignUp(){
@@ -48,6 +56,26 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     private fun goToSignIn(){
         val intent = Intent(this@MainActivity, SignIn::class.java)
         startActivity(intent)
+    }
+
+    private fun fetchJobData(){
+        var jobs : List<JobModel>? = null
+        val service = RetrofitClientInstance.retrofitInstance?.create(UserClient::class.java)
+        val call = service?.getAllJobs()
+
+        call?.enqueue(object : Callback<JobList> {
+            override fun onFailure(call: Call<JobList>, t: Throwable) {
+                Toast.makeText(applicationContext, "error : "+t.toString(), Toast.LENGTH_SHORT).show()
+            }
+
+            override fun onResponse(call: Call<JobList>, response: Response<JobList>) {
+                jobs = response.body()?.jobs
+
+                runOnUiThread {
+                    jobList.adapter = RecyclerViewMainAdapter(jobs)
+                }
+            }
+        })
     }
 
     override fun onBackPressed() {
@@ -75,27 +103,6 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
-        when (item.itemId) {
-            R.id.nav_camera -> {
-                // Handle the camera action
-            }
-            R.id.nav_gallery -> {
-
-            }
-            R.id.nav_slideshow -> {
-
-            }
-            R.id.nav_manage -> {
-
-            }
-            R.id.nav_share -> {
-
-            }
-            R.id.nav_send -> {
-
-            }
-        }
-
         main_layout.closeDrawer(GravityCompat.START)
         return true
     }
