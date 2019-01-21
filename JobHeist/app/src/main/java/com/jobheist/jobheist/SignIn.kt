@@ -28,33 +28,49 @@ class SignIn : AppCompatActivity() {
     }
 
     fun SignInButton(view : View){
-        email_login = findViewById<EditText>(R.id.input_email).text.toString()
-        password_login = findViewById<EditText>(R.id.input_password).text.toString()
+        val input_email = findViewById<EditText>(R.id.input_email)
+        val input_password = findViewById<EditText>(R.id.input_password)
+        if (isEmpty(input_email)){
+            input_email.error = "Silahkan isi alamat email"
+        }else if (isEmpty(input_password)){
+            input_password.error = "Silahkan isi password"
+        }else{
+            email_login = input_email.text.toString()
+            password_login = input_password.text.toString()
 
-        val login = Login(email_login, password_login)
-        val service = RetrofitClientInstance.retrofitInstance?.create(UserClient::class.java)
-        val call = service?.login(login)
+            val login = Login(email_login, password_login)
+            val service = RetrofitClientInstance.retrofitInstance?.create(UserClient::class.java)
+            val call = service?.login(login)
 
-        call?.enqueue(object : Callback<AccountData> {
-            override fun onFailure(call: Call<AccountData>, t: Throwable) {
-                Toast.makeText(applicationContext, "error : "+t.toString(), Toast.LENGTH_SHORT).show()
-            }
-
-            override fun onResponse(call: Call<AccountData>, response: Response<AccountData>) {
-                if(response.isSuccessful){
-                    App.prefs!!.id = response.body()?.getId()
-                    App.prefs!!.name = response.body()?.getName()
-                    App.prefs!!.email = response.body()?.getEmail()
-                    App.prefs!!.generated_token = response.body()?.getToken()
-
-                    val intent = Intent(this@SignIn, HomeLoggedIn::class.java)
-                    startActivity(intent)
-                }else{
-                    Toast.makeText(applicationContext, "Login failed", Toast.LENGTH_SHORT).show()
+            call?.enqueue(object : Callback<AccountData> {
+                override fun onFailure(call: Call<AccountData>, t: Throwable) {
+                    Toast.makeText(applicationContext, "error : "+t.toString(), Toast.LENGTH_SHORT).show()
                 }
-            }
 
-        })
+                override fun onResponse(call: Call<AccountData>, response: Response<AccountData>) {
+                    if(response.isSuccessful){
+                        App.prefs!!.id = response.body()?.getId()
+                        App.prefs!!.name = response.body()?.getName()
+                        App.prefs!!.email = response.body()?.getEmail()
+                        App.prefs!!.generated_token = response.body()?.getToken()
+
+                        val intent = Intent(this@SignIn, HomeLoggedIn::class.java)
+                        startActivity(intent)
+                    }else{
+                        Toast.makeText(applicationContext, "Login failed", Toast.LENGTH_SHORT).show()
+                    }
+                }
+
+            })
+        }
+    }
+
+    fun isEmpty(editText : EditText) : Boolean{
+        if(editText.length() == 0){
+            return true
+        }else{
+            return false
+        }
     }
 
     fun gotoSignUp(view: View){

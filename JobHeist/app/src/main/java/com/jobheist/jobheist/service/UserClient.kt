@@ -16,4 +16,7 @@ interface UserClient {
 
     @GET("jobs")
     fun getAllJobs() : Call<JobList>
+
+    @POST("users/register")
+    fun signup(@Body signup: Signup) : Call<ResponseBody>
 }

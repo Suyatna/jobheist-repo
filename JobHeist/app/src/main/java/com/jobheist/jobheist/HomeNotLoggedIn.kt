@@ -7,7 +7,6 @@ import android.support.design.widget.NavigationView
 import android.support.v4.view.GravityCompat
 import android.support.v7.app.ActionBarDrawerToggle
 import android.support.v7.widget.LinearLayoutManager
-import android.support.v7.widget.RecyclerView
 import android.view.*
 import android.widget.*
 import com.jobheist.jobheist.model.JobList
@@ -18,10 +17,9 @@ import kotlinx.android.synthetic.main.app_bar_home.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import retrofit2.Retrofit
 
 
-class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
+class HomeNotLoggedIn : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -49,12 +47,12 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     }
 
     private fun goToSignUp(){
-        val intent = Intent(this@MainActivity, SignUp::class.java)
+        val intent = Intent(this@HomeNotLoggedIn, SignUp::class.java)
         startActivity(intent)
     }
 
     private fun goToSignIn(){
-        val intent = Intent(this@MainActivity, SignIn::class.java)
+        val intent = Intent(this@HomeNotLoggedIn, SignIn::class.java)
         startActivity(intent)
     }
 

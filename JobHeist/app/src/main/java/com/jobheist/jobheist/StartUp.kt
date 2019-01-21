@@ -5,8 +5,6 @@ import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import com.jobheist.jobheist.App.Companion.prefs
-import com.jobheist.jobheist.model.JobModel
-import java.util.Collections.list
 
 class StartUp : AppCompatActivity() {
 
@@ -20,7 +18,7 @@ class StartUp : AppCompatActivity() {
         val intent : Intent
 
         if (login_token == ""){
-            intent = Intent(this@StartUp, MainActivity::class.java)
+            intent = Intent(this@StartUp, HomeNotLoggedIn::class.java)
         }else{
             intent = Intent(this@StartUp, HomeLoggedIn::class.java)
         }

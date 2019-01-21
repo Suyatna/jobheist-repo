@@ -1,6 +1,5 @@
 package com.jobheist.jobheist
 
-import android.app.Application
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
@@ -9,17 +8,13 @@ import android.support.v4.view.GravityCompat
 import android.support.v7.app.ActionBarDrawerToggle
 import android.view.*
 import android.widget.*
-import com.jobheist.jobheist.model.AccountData
 import com.jobheist.jobheist.model.Logout
 import com.jobheist.jobheist.service.UserClient
 import kotlinx.android.synthetic.main.activity_home_logged_in.*
-import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.app_bar_home.*
-import kotlinx.android.synthetic.main.drawer_home_logged_in_header.*
 import kotlinx.android.synthetic.main.drawer_home_logged_in_header.view.*
 import okhttp3.ResponseBody
 import retrofit2.Call
-import retrofit2.Retrofit
 import retrofit2.Callback
 import retrofit2.Response
 
@@ -96,7 +91,7 @@ class HomeLoggedIn : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             }
         })
 
-        val intent = Intent(this@HomeLoggedIn, MainActivity::class.java)
+        val intent = Intent(this@HomeLoggedIn, HomeNotLoggedIn::class.java)
         startActivity(intent)
     }
 

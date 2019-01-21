@@ -4,7 +4,7 @@ import com.google.gson.annotations.SerializedName
 
 class JobModel(@SerializedName("id") val id : Int,
                @SerializedName("title") val title : String,
-               @SerializedName("imageUrl") val imageUrl : String,
+               @SerializedName("imageurl") val imageUrl : String,
                @SerializedName("author") val author : String,
                @SerializedName("category") val category : String,
                @SerializedName("salary") val salary : String,
@@ -41,5 +41,9 @@ class JobModel(@SerializedName("id") val id : Int,
 
     fun getDateCreatedJob() : String{
         return date_created
+    }
+
+    fun getContentDesc() : String{
+        return content_desc
     }
 }

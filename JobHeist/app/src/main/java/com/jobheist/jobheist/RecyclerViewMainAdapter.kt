@@ -5,12 +5,14 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.Toast
 import com.jobheist.jobheist.model.AccountData
 import com.jobheist.jobheist.model.JobData
 import com.jobheist.jobheist.model.JobList
 import com.jobheist.jobheist.model.JobModel
 import com.jobheist.jobheist.service.UserClient
+import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.customlayout_recyclerview.view.*
 import retrofit2.Call
 import retrofit2.Callback
@@ -55,6 +57,10 @@ class RecyclerViewMainAdapter(val jobs : List<JobModel>?) : RecyclerView.Adapter
 
         p0.view.btn_bookmark.setOnClickListener { toggleBookmark() }
 
+        val rowImageView = p0.view?.findViewById<ImageView>(R.id.imageJob)
+
+        Picasso.with(p0.view?.context).load(jobs!![p1].getImageUrlJob()).into(rowImageView)
+
         p0.jobdetail = jobs
     }
 }
@@ -64,7 +70,12 @@ class customViewHolder(val view : View, var jobdetail : List<JobModel>? = null) 
         fun showJobDetail(){
             val intent = Intent(view.context, JobDetail::class.java)
             intent.putExtra("JobTitle", jobdetail!![position].getTitleJob())
-            intent.putExtra("JobId", jobdetail!![position].getIdJob())
+            intent.putExtra("JobAuthor", jobdetail!![position].getAuthorJob())
+            intent.putExtra("DateCreated", jobdetail!![position].getDateCreatedJob())
+            intent.putExtra("Location", jobdetail!![position].getLocationJob())
+            intent.putExtra("contentDesc", jobdetail!![position].getContentDesc())
+            intent.putExtra("Salary", jobdetail!![position].getSalaryJob())
+            intent.putExtra("ImageUrl", jobdetail!![position].getImageUrlJob())
 
             view.context.startActivity(intent)
         }
