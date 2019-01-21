@@ -6,17 +6,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".SignUp">
-
-    <ImageButton
-            android:background="@null"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:srcCompat="@drawable/back_arrow"
-            android:id="@+id/btn_back"
-            android:layout_marginTop="16dp"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginStart="16dp"/>
+    <include layout="@layout/app_bar_transparent" android:layout_width="match_parent" android:layout_height="wrap_content"/>
 
     <TextView
             android:id="@+id/sign_up_text"
@@ -29,7 +19,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            android:fontFamily="@font/roboto_medium" android:layout_marginTop="52dp"
+            android:fontFamily="roboto_medium" android:layout_marginTop="52dp"
             app:layout_constraintHorizontal_bias="0.502"/>
 
     <TextView
@@ -44,7 +34,7 @@
             app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="8dp"
             app:layout_constraintHorizontal_bias="0.503"
-            android:id="@+id/sub_title" android:fontFamily="@font/roboto_regular"/>
+            android:id="@+id/sub_title" android:fontFamily="roboto"/>
 
     <EditText
             android:layout_width="320dp"
@@ -60,7 +50,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             android:importantForAutofill="no"
             android:layout_marginTop="40dp"
-            android:fontFamily="@font/roboto_regular"/>
+            android:fontFamily="roboto"/>
 
     <EditText
             android:layout_width="320dp"
@@ -76,12 +66,13 @@
             android:layout_marginEnd="8dp"
             app:layout_constraintEnd_toEndOf="parent"
             android:importantForAutofill="no"
-            android:fontFamily="@font/roboto_regular"/>
+            android:fontFamily="roboto"/>
 
     <EditText
             android:layout_width="320dp"
             android:layout_height="43dp"
             android:hint="Password"
+            android:fontFamily="roboto"
             android:inputType="textPassword"
             android:ems="10"
             android:id="@+id/input_password"
@@ -112,10 +103,11 @@
 
     <Button
             android:text="Sign Up"
-            android:fontFamily="@font/roboto_medium"
+            android:fontFamily="roboto_medium"
             android:textSize="15sp"
             android:textColor="@color/White"
             android:background="@drawable/btn_purple_rounded"
+            android:onClick="SignUpButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/btn_sign_up"
@@ -131,7 +123,7 @@
             app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="76dp"
             app:layout_constraintEnd_toStartOf="@+id/sign_in_link" android:layout_marginEnd="6dp"
-            app:layout_constraintHorizontal_bias="1.0" android:fontFamily="@font/roboto_regular"
+            app:layout_constraintHorizontal_bias="1.0" android:fontFamily="roboto"
             android:textSize="12sp" android:layout_marginTop="24dp"
             app:layout_constraintTop_toBottomOf="@+id/btn_sign_up" android:layout_marginBottom="8dp"
             app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintVertical_bias="0.166"/>
@@ -140,10 +132,10 @@
             android:onClick="gotoSignIn"
             android:textColor="@color/colorButton"
             android:layout_width="wrap_content"
-            android:layout_height="19dp"
+            android:layout_height="wrap_content"
             android:id="@+id/sign_in_link"
             android:layout_marginEnd="124dp" app:layout_constraintEnd_toEndOf="parent"
-            android:fontFamily="@font/roboto_regular" android:textSize="12sp" android:layout_marginTop="24dp"
+            android:fontFamily="roboto" android:textSize="12sp" android:layout_marginTop="24dp"
             app:layout_constraintTop_toBottomOf="@+id/btn_sign_up" android:layout_marginBottom="8dp"
             app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintVertical_bias="0.166"/>
 

@@ -2,23 +2,73 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="com.jobheist.jobheist">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+
     <application
             android:allowBackup="true"
             android:icon="@mipmap/ic_launcher"
-            android:label="@string/app_name"
+            android:label="JobHeist"
             android:roundIcon="@mipmap/ic_launcher_round"
-            android:supportsRtl="true"
-            android:theme="@style/AppTheme">
-        <activity android:name=".SignUp">
+            android:supportsRtl="true">
+        <activity android:name=".StartUp" android:theme="@style/NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".SignIn">
+        <activity
+                android:name=".CompanyDetail"
+                android:parentActivityName=".JobDetail"
+                android:theme="@style/NoActionBar">
+            <meta-data
+                    android:name="android.support.PARENT_ACTIVITY"
+                    android:value="com.jobheist.jobheist.JobDetail"/>
         </activity>
-        <activity android:name=".ForgotPassword">
+        <activity
+                android:name=".SignUp"
+                android:parentActivityName=".HomeNotLoggedIn"
+                android:theme="@style/NoActionBar">
+            <meta-data
+                    android:name="android.support.PARENT_ACTIVITY"
+                    android:value="com.jobheist.jobheist.HomeNotLoggedIn"/>
+        </activity>
+        <activity
+                android:name=".SignIn"
+                android:parentActivityName=".HomeNotLoggedIn"
+                android:theme="@style/NoActionBar">
+            <meta-data
+                    android:name="android.support.PARENT_ACTIVITY"
+                    android:value="com.jobheist.jobheist.HomeNotLoggedIn"/>
+        </activity>
+        <activity
+                android:name=".ForgotPassword"
+                android:parentActivityName=".SignIn"
+                android:theme="@style/NoActionBar">
+            <meta-data
+                    android:name="android.support.PARENT_ACTIVITY"
+                    android:value="com.jobheist.jobheist.SignIn"/>
+        </activity>
+        <activity
+                android:name=".HomeNotLoggedIn"
+                android:theme="@style/NoActionBar">
+        </activity>
+        <activity
+                android:name=".JobDetail"
+                android:parentActivityName=".HomeNotLoggedIn"
+                android:theme="@style/NoActionBar">
+            <meta-data
+                    android:name="android.support.PARENT_ACTIVITY"
+                    android:value="com.jobheist.jobheist.HomeNotLoggedIn"/>
+        </activity>
+
+        <meta-data
+                android:name="preloaded_fonts"
+                android:resource="@array/preloaded_fonts"/>
+
+        <activity
+                android:name=".HomeLoggedIn"
+                android:theme="@style/NoActionBar">
         </activity>
     </application>
 

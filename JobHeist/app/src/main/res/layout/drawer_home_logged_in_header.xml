@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:focusable="true"
+        android:clickable="true" android:theme="@style/AppTheme.NoActionBar">
+    <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/imgProfileThumbnailDrawer"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="40dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_marginLeft="20dp"
+            android:src="@drawable/img_default"/>
+    <TextView
+            android:id="@+id/txtProfileNameDrawer"
+            android:text="Name"
+            android:fontFamily="roboto_medium"
+            android:textSize="20sp"
+            android:textColor="@color/Black"
+            android:singleLine="true"
+            android:ellipsize="marquee"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/imgProfileThumbnailDrawer"
+            android:layout_marginTop="20dp"
+            app:layout_constraintLeft_toLeftOf="@+id/imgProfileThumbnailDrawer"
+            />
+    <TextView
+            android:id="@+id/txtProfileSeeProfileDrawer"
+            android:text="See profile"
+            android:fontFamily="roboto"
+            android:textSize="15sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/txtProfileNameDrawer"
+            android:layout_marginTop="8dp"
+            app:layout_constraintLeft_toLeftOf="@+id/txtProfileNameDrawer"/>
+    <ImageView
+            android:id="@+id/header_divider"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/divider_header_drawer"
+            app:layout_constraintTop_toBottomOf="@id/txtProfileSeeProfileDrawer"
+            android:layout_marginTop="8dp"/>
+</android.support.constraint.ConstraintLayout>
